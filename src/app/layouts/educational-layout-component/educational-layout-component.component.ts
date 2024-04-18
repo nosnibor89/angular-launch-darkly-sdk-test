@@ -18,6 +18,9 @@ export class EducationalLayoutComponentComponent {
     private readonly router: Router,
     private readonly ld: LaunchDarklyService
   ) {
+
+
+    // if flag variations changes, this component should be notified thus showing the high school link or not
     this.shouldShowHighSchoolLink = this.ld.watch('feature-use-entra-id-auth');
     this.username = this.auth.user()?.username || 'Unknown';
   }
