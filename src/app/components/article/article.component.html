@@ -1,0 +1,12 @@
+<div class="col-2-grid">
+  <h2>{{ title }}</h2>
+
+  <article>
+    @for (paragraph of content; track $index) {
+
+    <p>
+      {{ paragraph }}
+    </p>
+    }
+  </article>
+</div>

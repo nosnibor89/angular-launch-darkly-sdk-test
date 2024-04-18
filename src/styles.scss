@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  padding: 1rem;
+}
+
+.col-2-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    padding: 1rem 1rem 1rem 4rem;
+}

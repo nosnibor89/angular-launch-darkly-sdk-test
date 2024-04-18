@@ -1,0 +1,30 @@
+@if( ld.initializing()) {
+  <p>loading...</p>
+} @else {
+
+<!-- <section>
+  <h2>Test Signal</h2>
+  <pre>
+  {{ testSignal() | json }}
+
+
+</pre
+  >
+  <button (click)="testIncrement()">add</button>
+</section>
+
+<section>
+  <h2>Lauch Darkly</h2>
+
+  <pre>
+    initializing: {{ ld.initializing() }}
+
+    flag watch ('feature-shows-tags'): {{ shouldShowTags() }}
+
+  </pre>
+</section> -->
+@if (componentTree) { @for(node of componentTree.tree; track $index) {
+<ng-container *ngComponentOutlet="node.component; inputs: node.inputs" />
+} } @else {
+<p>loading...</p>
+} }

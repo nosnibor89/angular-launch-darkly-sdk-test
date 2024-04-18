@@ -1,0 +1,19 @@
+<header>
+  <div>
+    <h1>Logo</h1>
+    <span>({{ username }})</span>
+  </div>
+
+  <nav>
+    <a [routerLink]="['ms']">MiddleSchool</a>
+
+    @if (shouldShowHighSchoolLink()) {
+    <a [routerLink]="['hs']">HighSchool</a>
+    }
+
+    <button (click)="logout()">logout</button>
+  </nav>
+</header>
+<main>
+  <router-outlet class="edu"></router-outlet>
+</main>

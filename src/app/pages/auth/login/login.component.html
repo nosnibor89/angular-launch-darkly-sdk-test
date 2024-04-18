@@ -1,0 +1,16 @@
+<div class="container">
+  <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="enter username"
+        formControlName="username"
+      />
+      <span
+        ><strong>hint:</strong> enter anything that could work as a username. e.g.
+        "terminator"</span
+      >
+    </div>
+    <button [disabled]="loginForm.status === 'INVALID'">login</button>
+  </form>
+</div>
