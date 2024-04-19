@@ -1,5 +1,4 @@
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, Routes, UrlTree } from '@angular/router';
-import { MainLayoutComponentComponent } from './layouts/main-layout-component/main-layout-component.component';
 import { EducationalLayoutComponentComponent } from './layouts/educational-layout-component/educational-layout-component.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { inject } from '@angular/core';
@@ -11,19 +10,6 @@ export const routes: Routes = [
     redirectTo: 'educational',
     pathMatch: 'full',
   },
-  // {
-  //   path: '',
-  //   component: MainLayoutComponentComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadComponent: () =>
-  //         import('./pages/home-page/home-page.component').then(
-  //           (m) => m.HomePageComponent
-  //         ),
-  //     },
-  //   ],
-  // },
   {
     path: 'login',
     component: LoginComponent,
@@ -48,9 +34,6 @@ export const routes: Routes = [
 
 
 function isAuthenticated(route: ActivatedRouteSnapshot , state: RouterStateSnapshot) {
-  console.log('route', route);
-  console.log('state', state);
-
   const auth = inject(AuthService);
   const router = inject(Router);
 

@@ -1,3 +1,7 @@
+@if (ld.initializing()) {
+<p>loading...</p>
+} @else {
+
 <header>
   <div>
     <h1>Logo</h1>
@@ -6,10 +10,9 @@
 
   <nav>
     <a [routerLink]="['ms']">MiddleSchool</a>
-
-    @if (shouldShowHighSchoolLink()) {
-    <a [routerLink]="['hs']">HighSchool</a>
-    }
+    <app-feature-flag flag="feature-use-entra-id-auth">
+      <a [routerLink]="['hs']" on>HighSchool</a>
+    </app-feature-flag>
 
     <button (click)="logout()">logout</button>
   </nav>
@@ -17,3 +20,4 @@
 <main>
   <router-outlet class="edu"></router-outlet>
 </main>
+}

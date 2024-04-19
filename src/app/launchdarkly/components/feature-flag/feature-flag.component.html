@@ -1,0 +1,5 @@
+@if (flagSignal && !!flagSignal()) {
+  <ng-content select="[on]"></ng-content>
+} @else {
+  <ng-content select="[off]"></ng-content>
+}
