@@ -1,34 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FlagSignal, LaunchDarklyService } from '../../launchdarkly/launchdarkly.service';
+import { LaunchDarklyService } from '../../launchdarkly/launchdarkly.service';
+import { FeatureFlagComponent } from '../../launchdarkly/components/feature-flag/feature-flag.component';
 
 @Component({
   selector: 'app-educational-layout-component',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, FeatureFlagComponent],
   templateUrl: './educational-layout-component.component.html',
   styleUrl: './educational-layout-component.component.scss',
 })
 export class EducationalLayoutComponentComponent {
-  shouldShowHighSchoolLink: FlagSignal;
   username: string;
   constructor(
     private readonly auth: AuthService,
     private readonly router: Router,
-    private readonly ld: LaunchDarklyService
+    public readonly ld: LaunchDarklyService
   ) {
-
-
-    // if flag variations changes, this component should be notified thus showing the high school link or not
-    this.shouldShowHighSchoolLink = this.ld.watch('feature-use-entra-id-auth');
     this.username = this.auth.user()?.username || 'Unknown';
-  }
-
-  @Input()
-  set program(value: string) {
-    console.log(`program value in layout: ${value}`);
-    // this.componentTree = this.builder.build(value as Pages);
   }
 
   logout() {
